@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: {{ nama }}</h5>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{ nama }}</a>
+    <a href="{% url 'wishlist:logout' %}">
+      <button type="button" class="btn btn-primary">
+        Logout
+      </button>
+    </a>
+  </div>
+</nav>
 
-<table>
-  <tr>
+<div class="container mt-4">
+<table class="table">
+  <thead class="table-light">
     <th>Nama Barang</th>
     <th>Harga Barang</th>
     <th>Deskripsi</th>
-  </tr>
+  </thead>
   {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
   {% for barang in list_barang %}
     <tr>
@@ -20,6 +30,6 @@
 </table>
 
 <h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+</div>
 
 {% endblock content %}

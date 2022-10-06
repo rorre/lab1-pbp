@@ -75,7 +75,7 @@
 
     $.ajax({
       type: 'POST',
-      url: '/wishlist/ajax/submit',
+      url: '{% url 'wishlist:create_wishlist' %}',
       data: data, 
       success: () => {
         alert("Done!")
